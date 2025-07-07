@@ -136,12 +136,16 @@ function gamePlay() {
         score.innerHTML = 'Score: ' + ps;          
     }
 }
-document.addEventListener('keydown', (e)=>{
-    e.preventDefault();
-    keys[e.key] = true;
+document.addEventListener('keydown', (e) => {
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+        e.preventDefault();
+        keys[e.key] = true;
+    }
 });
 
-document.addEventListener('keyup', (e)=>{
-    e.preventDefault();
-    keys[e.key] = false;
+document.addEventListener('keyup', (e) => {
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+        e.preventDefault();
+        keys[e.key] = false;
+    }
 });
